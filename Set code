@@ -1,0 +1,86 @@
+import java.util.Arrays;
+
+class Main 
+{
+  public static void main(String[] args) 
+  { 
+    
+    int[] card1 = new int [4]; //declaring each card as an array with 4 attributes
+    int[] card2 = new int [4];
+    int[] card3 = new int [4];
+    int[] card4 = new int [4];
+    int[] card5 = new int [4];
+    int[] card6 = new int [4];
+    int[] card7 = new int [4];
+    int[] card8 = new int [4];
+    int[] card9 = new int [4];
+    int[] card10 = new int [4];
+    int[] card11 = new int [4];
+    int[] card12 = new int [4];
+    
+
+      card1 = cardGen(card1); //generates random card
+      card2 = cardGen(card2);
+      card3 = cardGen(card3);
+      card4 = cardGen(card4);
+      card5 = cardGen(card5);
+      card6 = cardGen(card6);
+      card7 = cardGen(card7);
+      card8 = cardGen(card8);
+      card9 = cardGen(card9);
+      card10 = cardGen(card10);
+      card11 = cardGen(card11);
+      card12 = cardGen(card12);
+
+
+      int[][] allCards = {card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12}; //creates double array with all cards
+
+
+        for(int i = 0; i < 10; i++) //compares each card with 2 others
+        {
+          for(int j = i+1; j < 11; j++)
+          {
+            for(int k = j+1; k < 12; k++)
+            {
+              if(allCards[i][0] == allCards[j][0] && allCards[i][0] != allCards[k][0] || allCards[j][0] == allCards[k][0] && allCards[j][0] != allCards[i][0]|| allCards[i][0] == allCards[k][0] && allCards[i][0] != allCards[j][0]) //if 2 cards have the same attribute but the other does not, that means they can't be a set
+              {}
+              
+              else if(allCards[i][1] == allCards[j][1] && allCards[i][1] != allCards[k][1] || allCards[j][1] == allCards[k][1] && allCards[j][1] != allCards[i][1]|| allCards[i][1] == allCards[k][1] && allCards[i][1] != allCards[j][1])
+              {}
+
+              else if(allCards[i][2] == allCards[j][2] && allCards[i][2] != allCards[k][2] || allCards[j][2] == allCards[k][2] && allCards[j][2] != allCards[i][2]|| allCards[i][2] == allCards[k][2] && allCards[i][2] != allCards[j][2])
+              {}
+
+              else if(allCards[i][3] == allCards[j][3] && allCards[i][3] != allCards[k][3] || allCards[j][3] == allCards[k][3] && allCards[j][3] != allCards[i][3]|| allCards[i][3] == allCards[k][3] && allCards[i][3] != allCards[j][3])
+              {}
+
+              else //if the card makes it through all the ifs then it is a set
+              {
+                System.out.println("Set");
+                System.out.println(i+1 + "  ");
+                System.out.println(j+1 + "  ");
+                System.out.println(k+1 + "  \n");
+              }
+            }
+          }
+        }
+
+
+      for(int i = 1; i < 13; i++) //prints out all cards
+        {
+          System.out.print(i + ":  ");
+          System.out.println(Arrays.toString(allCards[i-1]));
+        }
+
+    
+  }
+
+static int[] cardGen(int card[]) //generates random attributes for each card
+  {
+    for(int i = 0; i < 4; i++)
+      {
+        card[i] = (int)(3*Math.random());
+      }
+    return card;
+  }
+}
